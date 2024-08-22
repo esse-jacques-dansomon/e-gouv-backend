@@ -1,4 +1,7 @@
 package me.essejacques.demand.repository;
 
-public interface FormFieldRepository extends org.springframework.data.jpa.repository.JpaRepository<me.essejacques.demand.entities.FormField, java.lang.Long> {
-  }
+import me.essejacques.demand.entities.FormField;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FormFieldRepository extends JpaRepository<FormField, Long> {
+}

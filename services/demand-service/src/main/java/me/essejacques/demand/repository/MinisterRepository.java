@@ -1,4 +1,7 @@
 package me.essejacques.demand.repository;
 
-public interface MinisterRepository extends org.springframework.data.jpa.repository.JpaRepository<me.essejacques.demand.entities.Minister, java.lang.Long> {
-  }
+import me.essejacques.demand.entities.Minister;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MinisterRepository extends JpaRepository<Minister, Long> {
+}
