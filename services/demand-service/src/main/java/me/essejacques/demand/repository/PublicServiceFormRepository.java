@@ -1,4 +1,7 @@
 package me.essejacques.demand.repository;
 
-public interface PublicServiceFormRepository extends org.springframework.data.jpa.repository.JpaRepository<me.essejacques.demand.entities.PublicServiceForm, java.lang.Long> {
-  }
+import me.essejacques.demand.entities.PublicServiceForm;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PublicServiceFormRepository extends JpaRepository<PublicServiceForm, Long> {
+}

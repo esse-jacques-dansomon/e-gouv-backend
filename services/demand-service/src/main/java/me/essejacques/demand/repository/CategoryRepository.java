@@ -1,4 +1,7 @@
 package me.essejacques.demand.repository;
 
-public interface CategoryRepository extends org.springframework.data.jpa.repository.JpaRepository<me.essejacques.demand.entities.Category, java.lang.Long> {
-  }
+import me.essejacques.demand.entities.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+}

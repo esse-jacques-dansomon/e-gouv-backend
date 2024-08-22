@@ -1,0 +1,60 @@
+server:
+  port: 8060
+  servlet:
+    context-path=: /api/v1
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: citizen-service
+          uri: lb://citizen-service
+          predicates:
+            - Path=/citizens/**
+
+        - id: company-service
+          uri: lb://company-service
+          predicates:
+            - Path=/companies/**, 
+
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notifications/**  
+
+        - id: demand-service
+          uri: lb://demand-service
+          predicates:
+            - Path=/demands/**
+
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/payments/**
+
+    
+        # - id: transaction-service
+        #   uri: lb://transaction-service
+        #   predicates:
+        #     - Path=/transactions/**, /transaction-histories/**, /categories/**
+
+        # - id: payment-method-service
+        #   uri: lb://payment-method-service
+        #   predicates:
+        #     - Path=/countries/**, /fees/**, /method-payments/**, /method-payment-form-items/**, /payments/**
+
+debug: true
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+    v3:
+      path: /v3/api-docs
