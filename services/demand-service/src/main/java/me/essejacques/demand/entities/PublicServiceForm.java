@@ -3,14 +3,7 @@ package me.essejacques.demand.entities;
 import java.sql.Date;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +20,11 @@ public class PublicServiceForm {
    private Long id;
 
    private String formCode;
+
    private String formName;
+
+   @OneToMany(cascade = CascadeType.ALL, mappedBy = "publicServiceForm")
+   private List<FormField> formFields;
 
    @Temporal(TemporalType.TIMESTAMP)
    private Date dateCreated;
@@ -35,6 +32,7 @@ public class PublicServiceForm {
    @Temporal(TemporalType.TIMESTAMP)
    private Date dateUpdated;
 
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "formulaire")
-   private List<FormField> composants;
+   @OneToOne
+   @JoinColumn(name = "public_service_id")
+   private PublicService publicService;
 }

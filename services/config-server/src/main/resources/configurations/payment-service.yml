@@ -1,0 +1,28 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/e-senegal-payment?autoReconnect=true&useSSL=false&createDatabaseIfNotExist=true
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+springdoc:
+  api-docs:
+    path: /open-api
+  swagger-ui:
+    path: /docs
+    operationsSorter: method
+  show-actuator: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: openapi, swagger-ui

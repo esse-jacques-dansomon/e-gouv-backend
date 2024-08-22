@@ -1,13 +1,12 @@
 package me.essejacques.demand.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,7 +21,11 @@ public class Minister {
    private String slug;
    private String adresse;
    private String phone;
+   private String fax;
    private String email;
    private String website;
    private String logo;
+
+   @OneToMany(mappedBy = "minister")
+   private Set<PublicService> publicServices;
 }

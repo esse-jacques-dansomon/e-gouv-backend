@@ -27,10 +27,19 @@ public class FormField {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
+   //label of the field
    private String label;
+   /*
+      * model of the field
+      * can be a string or a number
+      * for example: string, number, date, etc.
+    */
    private String model;
+   //indicates if the field is editable
    private boolean editable;
+   //indicates if the field is required
    private boolean required;
+
    private String componentType;
    private String description;
    private String placeholder;
@@ -41,11 +50,11 @@ public class FormField {
    private List<String> options;
 
    @ManyToOne
-   @JoinColumn(name = "formulaire_id")
-   private PublicServiceForm formulaire;
+   @JoinColumn(name = "public_service_form_id")
+   private PublicServiceForm publicServiceForm;
 
    @OneToMany(cascade = CascadeType.ALL)
-   @JoinColumn(name = "parent_id")
+   @JoinColumn(name = "parent_form_field_id")
    private List<FormField> subComponents;
 
    // @OneToOne(cascade = CascadeType.ALL)
@@ -53,6 +62,4 @@ public class FormField {
 
    // @OneToOne(cascade = CascadeType.ALL)
    // private Showable showable;
-
-   // Getters, Setters, Constructors
 }
