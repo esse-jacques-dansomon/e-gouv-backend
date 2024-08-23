@@ -36,7 +36,6 @@ public class PublicService {
 
    private Boolean isOnline;
 
-
    @ManyToOne
    @JoinColumn(name = "subcategory_id")
    private SubCategory subCategory;
@@ -46,7 +45,7 @@ public class PublicService {
    private Minister minister;
 
    @OneToMany(mappedBy = "publicService")
-   private Set<PublicServiceRequest> publicServiceRequests;
+   private Set<Demand> demands;
 
    @OneToOne(cascade = CascadeType.ALL)
    private PublicServiceForm publicServiceForm;

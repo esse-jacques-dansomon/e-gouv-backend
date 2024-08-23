@@ -9,13 +9,12 @@ import me.essejacques.demand.enums.PublicServiceStatus;
 
 import java.util.Map;
 
-
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class PublicServiceRequest {
+public class Demand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
